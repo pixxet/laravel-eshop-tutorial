@@ -9,26 +9,31 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <h3>Order num : {{$order->id}}</h3>
                 <h3>Made on : {{$order->created_at}}</h3>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th class="col-sm-4">Name</th>
-                        <th class="col-sm-4">File</th>
-                        <th class="col-sm-2">Price</th>
+                        <th class="w-60">Name</th>
+                        <th class="w-20">Price</th>
                     </tr>
                     </thead>
                     @foreach($order->orderItems as $item)
                         <tr>
-                            <td>{{$item->product->name}}</td>
-                            <td><a href="/download/{{$order->id}}/{{$item->file->filename}}"> {{$item->file->filename}}</a></td>
-                            <td>$ {{number_format($item->product->price,2,',','')}}</td>
+                            <td>
+                                <div class="media">
+                                    <a class="thumbnail pull-left" href="#"> <img class="media-object" src="/storage/{{$item->product->imageurl}}" style="max-width: 100px; max-height: 72px; margin-right: 10px"> </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a href="#">{{$item->product->name}}</a></h4>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{CURRENCY}} {{number_format(intval($item->product->price),2,',','')}}</td>
                         </tr>
                     @endforeach
                 </table>

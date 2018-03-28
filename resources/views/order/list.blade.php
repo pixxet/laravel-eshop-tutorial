@@ -14,13 +14,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th class="col-sm-2">Id</th>
-                        <th class="col-sm-4">Date</th>
-                        <th class="col-sm-2"></th>
+                        <th class="w-60">Id</th>
+                        <th class="w-40">Date</th>
+                        <th></th>
                     </tr>
                     </thead>
                     @foreach($orders as $order)
